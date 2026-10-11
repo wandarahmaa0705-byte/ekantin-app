@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Profil - eKantin</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="app-nav.css">
+    <link rel="stylesheet" href="akun.css">
+</head>
+
+<body>
+
+    <main class="student-profile">
+        <header class="profile-heading">
+            <h1>Profil Saya</h1>
+            <p>Informasi akun dan biodatamu</p>
+        </header>
+
+        <section class="profile-hero" aria-label="Foto dan identitas akun">
+            <img class="profile-photo" id="profilePhoto" alt="Foto profil" hidden>
+            <span class="profile-photo-fallback" id="profilePhotoFallback" aria-hidden="true">👤</span>
+            <div class="photo-actions">
+                <input id="profilePhotoInput" type="file" accept="image/png,image/jpeg,image/webp" hidden>
+                <button class="photo-action change-photo" id="changePhotoButton" type="button">Ganti Foto</button>
+                <button class="photo-action remove-photo" id="removePhotoButton" type="button" hidden>Hapus Foto</button>
+            </div>
+            <strong class="hero-name" id="heroName"></strong>
+            <span class="hero-email" id="heroEmail"></span>
+            <p class="photo-message" id="photoMessage" role="status"></p>
+        </section>
+
+        <section class="account-section" aria-labelledby="accountInfoTitle">
+            <div class="section-heading">
+                <h2 id="accountInfoTitle">Informasi Akun</h2>
+                <p>Data akun yang digunakan</p>
+            </div>
+            <div class="account-info-list">
+                <div class="biodata-row">
+                    <span class="biodata-icon" aria-hidden="true">👤</span>
+                    <div><span class="biodata-label">Nama Lengkap</span><strong id="accountNameValue"></strong></div>
+                </div>
+                <div class="biodata-row">
+                    <span class="biodata-icon" aria-hidden="true">✉️</span>
+                    <div><span class="biodata-label">Email</span><strong id="accountEmailValue"></strong></div>
+                </div>
+                <div class="biodata-row">
+                    <span class="biodata-icon" aria-hidden="true">📍</span>
+                    <div><span class="biodata-label">Lokasi Antar di Sekolah</span><strong id="deliveryLocationValue">Belum diisi</strong></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="account-section" aria-labelledby="studentInfoTitle">
+            <div class="section-heading">
+                <h2 id="studentInfoTitle">Biodata Siswa</h2>
+                <p>Informasi pribadi siswa</p>
+            </div>
+            <div class="biodata-list" aria-label="Biodata siswa">
+            <div class="biodata-row">
+                <span class="biodata-icon" aria-hidden="true">🎂</span>
+                <div><span class="biodata-label">Tanggal Lahir</span><strong id="birthValue">Belum diisi</strong></div>
+            </div>
+            <div class="biodata-row">
+                <span class="biodata-icon" aria-hidden="true">🏫</span>
+                <div><span class="biodata-label">Kelas</span><strong id="classValue">Belum diisi</strong></div>
+            </div>
+            <div class="biodata-row">
+                <span class="biodata-icon" aria-hidden="true">📞</span>
+                <div><span class="biodata-label">Nomor Telepon</span><strong id="nisValue">Belum diisi</strong></div>
+            </div>
+            <div class="biodata-row">
+                <span class="biodata-icon" aria-hidden="true">🪪</span>
+                <div><span class="biodata-label">NISN</span><strong id="nisnValue">Belum diisi</strong></div>
+            </div>
+            </div>
+        </section>
+
+        <div class="profile-actions">
+            <button class="profile-button primary" id="editBiodataButton" type="button">✏️ Isi Biodata</button>
+            <button class="profile-button secondary" id="editNameButton" type="button">✏️ Edit Nama</button>
+            <button class="profile-button logout" type="button" onclick="logout()">🚪 Keluar</button>
+        </div>
+
+        <dialog class="profile-dialog" id="profileDialog">
+            <form id="profileForm">
+                <div class="dialog-heading">
+                    <div>
+                        <h2>Informasi Profil</h2>
+                        <p>Perbarui biodata dan informasi akunmu.</p>
+                    </div>
+                    <button class="dialog-close" type="button" id="closeDialogButton" aria-label="Tutup">×</button>
+                </div>
+                <div class="profile-fields">
+                    <label for="profileName">Nama lengkap</label>
+                    <input id="profileName" type="text" maxlength="100" required>
+                    <label for="profileEmail">Email</label>
+                    <input id="profileEmail" type="email" required>
+                    <label for="profileBirth">Tanggal lahir</label>
+                    <input id="profileBirth" type="date">
+                    <label for="profileClass">Kelas</label>
+                    <input id="profileClass" type="text" maxlength="30" placeholder="Contoh: 10A">
+                    <label for="profileNis">Nomor Telepon</label>
+                    <input id="profileNis" type="tel" required>
+                    <label for="profileNisn">NISN</label>
+                    <input id="profileNisn" type="text" inputmode="numeric" maxlength="30">
+                    <label for="profileDeliveryLocation">Lokasi antar di sekolah</label>
+                    <input id="profileDeliveryLocation" type="text" maxlength="100" placeholder="Contoh: Gedung A, kelas 10A">
+                </div>
+                <p class="profile-location-hint">Pengantaran hanya tersedia di lingkungan sekolah. Isi nama gedung dan kelas.</p>
+                <div class="dialog-actions">
+                    <button class="profile-button secondary" id="cancelDialogButton" type="button">Batal</button>
+                    <button class="profile-button primary" type="submit">Simpan Biodata</button>
+                </div>
+                <p class="form-message" id="formMessage" role="status"></p>
+            </form>
+        </dialog>
+    </div>
+
+    <nav class="app-bottom-nav" aria-label="Navigasi utama">
+        <a class="app-nav-item" href="dashboard.html"><span>🏠</span><small>Beranda</small></a>
+        <a class="app-nav-item" href="menu.html"><span>🍱</span><small>Menu</small></a>
+        <a class="app-nav-item" href="history.html"><span>📋</span><small>Riwayat</small></a>
+        <a class="app-nav-item" href="nutrition.html"><span>🥗</span><small>Gizi</small></a>
+        <a class="app-nav-item active" href="akun.html"><span>👤</span><small>Profil</small></a>
+    </nav>
+
+    <script>
+        const accountToken = localStorage.getItem("ekantinToken");
+        let accountUser = JSON.parse(localStorage.getItem("ekantinUser") || "null");
+
+        if (!accountToken || !accountUser) {
+            window.location.href = "index.html";
+        } else if (accountUser.role !== "buyer") {
+            window.location.href = "seller.html";
+        }
+
+        function tampilkanAkun() {
+            document.getElementById("heroName").textContent = accountUser?.name || "";
+            document.getElementById("heroEmail").textContent = accountUser?.email || "";
+            document.getElementById("accountNameValue").textContent = accountUser?.name || "Belum diisi";
+            document.getElementById("accountEmailValue").textContent = accountUser?.email || "Belum diisi";
+            const profilePhoto = document.getElementById("profilePhoto");
+            profilePhoto.hidden = !accountUser?.profilePhoto;
+            profilePhoto.src = accountUser?.profilePhoto || "";
+            document.getElementById("profilePhotoFallback").hidden = Boolean(accountUser?.profilePhoto);
+            document.getElementById("removePhotoButton").hidden = !accountUser?.profilePhoto;
+            document.getElementById("profileName").value = accountUser?.name || "";
+            document.getElementById("profileNis").value = accountUser?.identityCode || "";
+            document.getElementById("profileEmail").value = accountUser?.email || "";
+            document.getElementById("profileBirth").value = accountUser?.dateOfBirth || "";
+            document.getElementById("profileClass").value = accountUser?.studentClass || "";
+            document.getElementById("profileNisn").value = accountUser?.nisn || "";
+            document.getElementById("profileDeliveryLocation").value = accountUser?.deliveryLocation || "";
+            document.getElementById("birthValue").textContent = accountUser?.dateOfBirth
+                ? new Intl.DateTimeFormat("id-ID", { dateStyle: "long", timeZone: "UTC" }).format(new Date(`${accountUser.dateOfBirth}T00:00:00Z`))
+                : "Belum diisi";
+            document.getElementById("classValue").textContent = accountUser?.studentClass || "Belum diisi";
+            document.getElementById("nisValue").textContent = accountUser?.identityCode || "Belum diisi";
+            document.getElementById("nisnValue").textContent = accountUser?.nisn || "Belum diisi";
+            document.getElementById("deliveryLocationValue").textContent = accountUser?.deliveryLocation || "Belum diisi";
+        }
+
+        const profileDialog = document.getElementById("profileDialog");
+        const profilePhotoInput = document.getElementById("profilePhotoInput");
+        const photoMessage = document.getElementById("photoMessage");
+        document.getElementById("changePhotoButton").addEventListener("click", () => profilePhotoInput.click());
+        profilePhotoInput.addEventListener("change", async () => {
+            const file = profilePhotoInput.files[0];
+            if (!file) return;
+            photoMessage.textContent = "";
+            if (!["image/png", "image/jpeg", "image/webp"].includes(file.type)) {
+                photoMessage.textContent = "Pilih gambar PNG, JPG, atau WebP.";
+                profilePhotoInput.value = "";
+                return;
+            }
+            if (file.size > 4 * 1024 * 1024) {
+                photoMessage.textContent = "Ukuran gambar maksimal 4 MB.";
+                profilePhotoInput.value = "";
+                return;
+            }
+            try {
+                const imageData = await new Promise((resolve, reject) => {
+                    const reader = new FileReader();
+                    reader.addEventListener("load", () => resolve(reader.result));
+                    reader.addEventListener("error", () => reject(new Error("Foto gagal dibaca.")));
+                    reader.readAsDataURL(file);
+                });
+                const response = await fetch("/api/account/profile-photo", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json", Authorization: `Bearer ${accountToken}` },
+                    body: JSON.stringify({ imageData })
+                });
+                const result = await response.json();
+                if (!response.ok) throw new Error(result.error || "Foto gagal diunggah.");
+                accountUser = result.user;
+                localStorage.setItem("ekantinUser", JSON.stringify(accountUser));
+                tampilkanAkun();
+            } catch (error) {
+                photoMessage.textContent = error.message || "Foto gagal diunggah.";
+            } finally {
+                profilePhotoInput.value = "";
+            }
+        });
+        document.getElementById("removePhotoButton").addEventListener("click", async () => {
+            if (!accountUser?.profilePhoto || !confirm("Hapus foto profil?")) return;
+            photoMessage.textContent = "";
+            try {
+                const response = await fetch("/api/account/profile-photo", {
+                    method: "DELETE",
+                    headers: { Authorization: `Bearer ${accountToken}` }
+                });
+                const result = await response.json();
+                if (!response.ok) throw new Error(result.error || "Foto gagal dihapus.");
+                accountUser = result.user;
+                localStorage.setItem("ekantinUser", JSON.stringify(accountUser));
+                tampilkanAkun();
+            } catch (error) {
+                photoMessage.textContent = error.message || "Foto gagal dihapus.";
+            }
+        });
+        document.getElementById("editBiodataButton").addEventListener("click", () => profileDialog.showModal());
+        document.getElementById("editNameButton").addEventListener("click", () => {
+            profileDialog.showModal();
+            document.getElementById("profileName").focus();
+        });
+        document.getElementById("closeDialogButton").addEventListener("click", () => profileDialog.close());
+        document.getElementById("cancelDialogButton").addEventListener("click", () => profileDialog.close());
+
+        document.getElementById("profileForm").addEventListener("submit", async function(event) {
+            event.preventDefault();
+            const message = document.getElementById("formMessage");
+            message.textContent = "";
+            try {
+                const response = await fetch("/api/account/profile", {
+                    method: "PUT",
+                    headers: {
+                        "Content-Type": "application/json",
+                        Authorization: `Bearer ${accountToken}`
+                    },
+                    body: JSON.stringify({
+                        name: document.getElementById("profileName").value.trim(),
+                        identityCode: document.getElementById("profileNis").value.trim(),
+                        email: document.getElementById("profileEmail").value.trim(),
+                        dateOfBirth: document.getElementById("profileBirth").value,
+                        studentClass: document.getElementById("profileClass").value.trim(),
+                        nisn: document.getElementById("profileNisn").value.trim(),
+                        deliveryLocation: document.getElementById("profileDeliveryLocation").value.trim()
+                    })
+                });
+                const result = await response.json();
+                if (!response.ok) throw new Error(result.error || "Profil gagal diperbarui.");
+                accountUser = result.user;
+                localStorage.setItem("ekantinUser", JSON.stringify(accountUser));
+                localStorage.setItem("userName", accountUser.name);
+                localStorage.setItem("userNIS", accountUser.identityCode || "");
+                localStorage.setItem("userEmail", accountUser.email);
+                tampilkanAkun();
+                profileDialog.close();
+            } catch (error) {
+                message.textContent = error.message || "Server tidak terhubung.";
+            }
+        });
+
+
+        async function logout() {
+            try {
+                await fetch("/api/auth/logout", {
+                    method: "POST",
+                    headers: { Authorization: `Bearer ${accountToken}` }
+                });
+            } finally {
+                localStorage.clear();
+                window.location.href = "index.html";
+            }
+        }
+
+
+        tampilkanAkun();
+
+    </script>
+
+</body>
+</html>

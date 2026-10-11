@@ -1,0 +1,50 @@
+.app-bottom-nav {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(28px, 7vw, 72px);
+    height: 74px;
+    padding: 8px 18px;
+    background: #ffffff;
+    box-shadow: 0 -3px 15px rgba(0, 0, 0, .08);
+}
+
+body {
+    padding-bottom: 100px !important;
+}
+
+.app-bottom-nav .app-nav-item {
+    display: flex;
+    min-width: 52px;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    color: #999999;
+    text-decoration: none;
+}
+
+.app-bottom-nav .app-nav-item span {
+    font-size: 22px;
+    line-height: 1;
+}
+
+.app-bottom-nav .app-nav-item small {
+    font-size: 10px;
+}
+
+.app-bottom-nav .app-nav-item.active {
+    color: #2e7d32;
+    font-weight: 600;
+}
+
+@media (max-width: 520px) {
+    .app-bottom-nav {
+        justify-content: space-between;
+        gap: 4px;
+    }
+}

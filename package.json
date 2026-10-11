@@ -1,0 +1,27 @@
+{
+  "name": "ekantin",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Aplikasi kantin sekolah dengan backend SQLite lokal",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "start:prod": "node server.js",
+    "deploy:pm2": "pm2 start ecosystem.config.js",
+    "test": "node --test",
+    "android:sync": "npx cap sync android",
+    "android:open": "npx cap open android",
+    "android:build": "npx cap build android"
+  },
+  "engines": {
+    "node": ">=22.5.0"
+  },
+  "dependencies": {
+    "@capacitor/android": "^6.2.1",
+    "@capacitor/cli": "^6.2.1",
+    "@capacitor/core": "^6.2.1"
+  },
+  "devDependencies": {
+    "typescript": "^7.0.2"
+  }
+}

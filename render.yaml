@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: ekantin-api
+    env: node
+    plan: free
+    region: oregon
+    rootDir: .
+    buildCommand: npm install --omit=dev
+    startCommand: node server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: HOST
+        value: 0.0.0.0
+      - key: PORT
+        value: 3000
+      - key: ALLOWED_ORIGINS
+        value: "*"
+      - key: EKANTIN_DB_PATH
+        value: ./data/ekantin.sqlite
+      - key: EKANTIN_UPLOAD_PATH
+        value: ./uploads

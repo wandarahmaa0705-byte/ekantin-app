@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informasi Gizi - eKantin</title>
+    <link rel="stylesheet" href="nutrition.css">
+    <link rel="stylesheet" href="app-nav.css">
+</head>
+
+<body>
+    <header class="nutrition-header">
+        <button class="back-button" onclick="goBack()" aria-label="Kembali">←</button>
+        <div>
+            <h1>Informasi Gizi</h1>
+            <p>Kenali kandungan makanan sebelum memilih</p>
+        </div>
+    </header>
+
+    <main class="nutrition-container">
+        <section class="intro-section">
+            <div class="intro-icon">🥗</div>
+            <div>
+                <h2>Pilihan sehatmu</h2>
+                <p>Bandingkan kandungan nutrisi dari menu eKantin.</p>
+            </div>
+        </section>
+
+        <div class="search-box">
+            <span>🔍</span>
+            <input id="nutritionSearch" type="search" placeholder="Cari makanan atau minuman..." aria-label="Cari makanan atau minuman">
+        </div>
+
+        <div class="category-list" role="group" aria-label="Filter kategori">
+            <button class="category-button active" data-category="all">Semua</button>
+            <button class="category-button" data-category="makanan">🍚 Makanan</button>
+            <button class="category-button" data-category="minuman">🥤 Minuman</button>
+            <button class="category-button" data-category="snack">🍞 Snack</button>
+        </div>
+
+        <section id="nutritionList" class="nutrition-list"></section>
+    </main>
+
+    <nav class="app-bottom-nav" aria-label="Navigasi utama">
+        <a class="app-nav-item" href="dashboard.html"><span>🏠</span><small>Beranda</small></a>
+        <a class="app-nav-item" href="menu.html"><span>🍱</span><small>Menu</small></a>
+        <a class="app-nav-item" href="history.html"><span>📋</span><small>Riwayat</small></a>
+        <a class="app-nav-item active" href="nutrition.html"><span>🥗</span><small>Gizi</small></a>
+        <a class="app-nav-item" href="akun.html"><span>👤</span><small>Profil</small></a>
+    </nav>
+
+    <script src="nutrition.js"></script>
+</body>
+
+</html>

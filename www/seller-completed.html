@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesanan Selesai - eKantin</title>
+    <link rel="stylesheet" href="seller.css">
+    <link rel="stylesheet" href="app-nav.css">
+</head>
+<body>
+    <header class="seller-header">
+        <a class="brand" href="seller.html">eKantin <span>Kelola Kantin</span></a>
+        <div class="seller-account">
+            <span id="sellerIdentity">Penjual</span>
+            <div class="seller-wallet" aria-label="Saldo kantin">
+                <span class="seller-wallet-icon" aria-hidden="true">💰</span>
+                <span class="seller-wallet-info"><small>Saldo kantin</small><strong id="sellerBalance">Memuat...</strong></span>
+            </div>
+            <button id="logoutButton" class="button button-quiet" type="button">Keluar</button>
+        </div>
+    </header>
+
+    <main class="seller-main">
+        <section class="welcome-row">
+            <div>
+                <p class="eyebrow">KELOLA KANTIN</p>
+                <h1 id="canteenTitle">Pesanan Selesai</h1>
+                <p>Riwayat pesanan yang sudah diserahkan dan pendapatan yang masuk.</p>
+            </div>
+            <a class="button button-quiet" href="seller-orders.html">Lihat pesanan masuk</a>
+        </section>
+
+
+        <section class="orders-panel dedicated-panel">
+            <div class="section-heading">
+                <div>
+                    <h2>Riwayat pesanan selesai</h2>
+                    <p>Pesanan yang sudah diantar atau diambil.</p>
+                </div>
+            </div>
+            <div id="sellerCompleted" class="seller-orders"></div>
+            <p id="pageMessage" class="form-message" role="status"></p>
+        </section>
+    </main>
+    <nav class="app-bottom-nav seller-bottom-nav" aria-label="Navigasi penjual">
+        <a class="app-nav-item" href="seller.html" aria-label="Dashboard penjual"><span aria-hidden="true">🏠</span><small>Dashboard</small></a>
+        <a class="app-nav-item" href="seller-menus.html" aria-label="Menu kantin"><span aria-hidden="true">🍱</span><small>Menu</small></a>
+        <a class="app-nav-item" href="seller-topup.html" aria-label="Top up pembeli"><span aria-hidden="true">💳</span><small>Top up</small></a>
+        <a class="app-nav-item" href="seller-orders.html" aria-label="Pesanan masuk"><span aria-hidden="true">📥</span><small>Pesanan</small><span id="sellerOrderCount" class="seller-nav-count" aria-label="0 pesanan masuk" hidden>0</span></a>
+        <a class="app-nav-item active" href="seller-completed.html" aria-label="Pesanan selesai"><span aria-hidden="true">✅</span><small>Selesai</small></a>
+        <a class="app-nav-item" href="seller-profile.html" aria-label="Profil penjual"><span aria-hidden="true">👤</span><small>Profil</small></a>
+    </nav>
+    <script src="api-config.js"></script>
+    <script src="seller.js"></script>
+</body>
+</html>

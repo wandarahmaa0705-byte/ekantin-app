@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Menu Makanan - eKantin</title>
+
+    <link rel="stylesheet" href="menu.css">
+    <link rel="stylesheet" href="app-nav.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="header-left">
+            <button class="back-button" onclick="goBack()">←</button>
+
+            <div class="logo">
+                <div class="logo-circle">🍽️</div>
+
+                <div>
+                    <h2>eKantin</h2>
+                    <p>Makan Sehat, Prestasi Hebat!</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="header-right">
+            <button class="cart-button" onclick="openCart()">
+                🛒
+                <span id="cartCount">0</span>
+            </button>
+
+            <a class="profile" href="akun.html" aria-label="Buka profil akun">
+                <div class="profile-icon">
+                    <img id="profileAvatarImage" alt="" hidden>
+                    <span id="profileAvatarFallback" aria-hidden="true">👤</span>
+                </div>
+                <span id="userName">Pengguna</span>
+            </a>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="page-title">
+            <h1>Menu Makanan</h1>
+            <p>Pilih makanan dan minuman sehat favoritmu</p>
+        </section>
+
+        <div class="search-box">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="searchInput" placeholder="Cari makanan atau minuman...">
+        </div>
+
+        <div class="categories">
+            <button class="category-button active" data-category="all">Semua</button>
+            <button class="category-button" data-category="makanan">🍚 Makanan</button>
+            <button class="category-button" data-category="minuman">🥤 Minuman</button>
+            <button class="category-button" data-category="snack">🍞 Snack</button>
+            <button class="category-button" data-category="sehat">💚 Pilihan Sehat</button>
+        </div>
+
+        <div class="menu-summary">
+            <span id="menuCount">Memuat menu...</span>
+        </div>
+
+        <div id="noResult" class="no-result" style="display:none;">
+            Belum ada menu dari akun penjual kantin.
+        </div>
+
+        <section class="menu-section">
+            <div class="menu-grid"></div>
+        </section>
+    </main>
+
+    <nav class="app-bottom-nav" aria-label="Navigasi utama">
+        <a class="app-nav-item" href="dashboard.html"><span>🏠</span><small>Beranda</small></a>
+        <a class="app-nav-item active" href="menu.html"><span>🍱</span><small>Menu</small></a>
+        <a class="app-nav-item" href="history.html"><span>📋</span><small>Riwayat</small></a>
+        <a class="app-nav-item" href="nutrition.html"><span>🥗</span><small>Gizi</small></a>
+        <a class="app-nav-item" href="akun.html"><span>👤</span><small>Profil</small></a>
+    </nav>
+
+    <script src="api-config.js"></script>
+    <script src="menu.js"></script>
+</body>
+</html>

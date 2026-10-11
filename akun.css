@@ -1,0 +1,411 @@
+body {
+    min-height: 100vh;
+    background: #f4f8fc;
+}
+
+.student-profile {
+    width: min(1280px, calc(100% - 48px));
+    margin: 24px auto 36px;
+    color: #142b45;
+}
+
+.profile-heading h1 {
+    margin: 0 0 6px;
+    color: #142b45;
+    font-size: 25px;
+    line-height: 1.2;
+}
+
+.profile-heading p {
+    margin: 0 0 22px;
+    color: #63778e;
+    font-size: 15px;
+}
+
+.profile-hero {
+    display: flex;
+    min-height: 320px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 36px 24px;
+    border-radius: 30px;
+    background: #fff;
+    box-shadow: 0 10px 30px rgba(37, 73, 112, .06);
+    text-align: center;
+}
+
+.profile-photo,
+.profile-photo-fallback {
+    display: grid;
+    width: 112px;
+    height: 112px;
+    place-items: center;
+    overflow: hidden;
+    border-radius: 50%;
+    background: #eaf3ff;
+    box-shadow: 0 8px 24px rgba(37, 73, 112, .12);
+    font-size: 46px;
+    object-fit: cover;
+}
+
+.profile-photo[hidden],
+.profile-photo-fallback[hidden],
+.photo-action[hidden] {
+    display: none;
+}
+
+.photo-actions {
+    display: flex;
+    min-height: 42px;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin: 8px 0 10px;
+}
+
+.photo-action {
+    padding: 7px 4px;
+    border: 0;
+    background: transparent;
+    color: #0879dc;
+    cursor: pointer;
+    font: inherit;
+    font-size: 15px;
+}
+
+.photo-action:hover {
+    text-decoration: underline;
+}
+
+.photo-action.remove-photo {
+    color: #d93434;
+}
+
+.hero-name {
+    margin-top: 8px;
+    color: #142b45;
+    font-size: 29px;
+    overflow-wrap: anywhere;
+}
+
+.hero-email {
+    margin-top: 10px;
+    color: #63778e;
+    font-size: 17px;
+    overflow-wrap: anywhere;
+}
+
+.photo-message {
+    margin: 8px 0 0;
+    color: #c62828;
+    font-size: 14px;
+}
+
+.account-section {
+    margin-top: 34px;
+}
+
+.section-heading {
+    margin-bottom: 16px;
+}
+
+.section-heading h2 {
+    margin: 0 0 5px;
+    color: #142b45;
+    font-size: 24px;
+}
+
+.section-heading p {
+    margin: 0;
+    color: #63778e;
+    font-size: 15px;
+}
+
+.biodata-list,
+.account-info-list {
+    overflow: hidden;
+    border-radius: 28px;
+    background: #fff;
+    box-shadow: 0 10px 30px rgba(37, 73, 112, .06);
+}
+
+.biodata-row {
+    display: flex;
+    min-height: 96px;
+    align-items: center;
+    gap: 18px;
+    padding: 16px 24px;
+    border-bottom: 1px solid #dce6f0;
+}
+
+.biodata-row:last-child {
+    border-bottom: 0;
+}
+
+.biodata-icon {
+    display: grid;
+    width: 54px;
+    height: 54px;
+    flex: 0 0 54px;
+    place-items: center;
+    border-radius: 17px;
+    background: #eaf3ff;
+    font-size: 24px;
+}
+
+.biodata-row > div {
+    display: grid;
+    min-width: 0;
+    gap: 5px;
+}
+
+.biodata-label {
+    color: #5f7288;
+    font-size: 14px;
+}
+
+.biodata-row strong {
+    overflow-wrap: anywhere;
+    color: #172b43;
+    font-size: 18px;
+}
+
+.profile-actions {
+    display: grid;
+    gap: 14px;
+    margin-top: 18px;
+}
+
+.profile-button {
+    min-height: 60px;
+    padding: 12px 18px;
+    border: 0;
+    border-radius: 16px;
+    cursor: pointer;
+    font: inherit;
+    font-size: 17px;
+    font-weight: 700;
+    transition: background-color .18s ease, transform .18s ease;
+}
+
+.profile-button:hover {
+    transform: translateY(-1px);
+}
+
+.profile-button.primary {
+    background: #0879dc;
+    color: #fff;
+}
+
+.profile-button.primary:hover {
+    background: #066bc4;
+}
+
+.profile-button.secondary {
+    background: #e8f2ff;
+    color: #0879dc;
+}
+
+.profile-button.secondary:hover {
+    background: #dcecff;
+}
+
+.profile-button.logout {
+    background: #fff0ef;
+    color: #d93434;
+}
+
+.profile-button.logout:hover {
+    background: #ffe5e3;
+}
+
+.profile-dialog {
+    width: min(560px, calc(100% - 32px));
+    max-height: min(90vh, 760px);
+    padding: 26px;
+    border: 0;
+    border-radius: 22px;
+    color: #142b45;
+    box-shadow: 0 24px 80px rgba(17, 39, 65, .24);
+}
+
+.profile-dialog::backdrop {
+    background: rgba(17, 39, 65, .45);
+    backdrop-filter: blur(3px);
+}
+
+.dialog-heading {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 22px;
+}
+
+.dialog-heading h2 {
+    margin: 0 0 5px;
+    font-size: 23px;
+}
+
+.dialog-heading p {
+    margin: 0;
+    color: #63778e;
+}
+
+.dialog-close {
+    width: 38px;
+    height: 38px;
+    flex: 0 0 38px;
+    border: 0;
+    border-radius: 12px;
+    background: #eef4fa;
+    color: #344b63;
+    cursor: pointer;
+    font-size: 26px;
+    line-height: 1;
+}
+
+.profile-fields {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 9px 14px;
+}
+
+.profile-fields label {
+    align-self: end;
+    color: #425a73;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.profile-fields input {
+    width: 100%;
+    min-height: 46px;
+    padding: 10px 12px;
+    border: 1px solid #cfdae6;
+    border-radius: 10px;
+    background: #fff;
+    color: #142b45;
+    font: inherit;
+}
+
+.profile-fields input:focus {
+    border-color: #0879dc;
+    outline: 3px solid rgba(8, 121, 220, .14);
+}
+
+.profile-location-hint {
+    margin: 10px 0 0;
+    color: #63778e;
+    font-size: 12px;
+}
+
+.dialog-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 24px;
+}
+
+.dialog-actions .profile-button {
+    min-height: 48px;
+    padding: 10px 16px;
+    font-size: 16px;
+}
+
+.form-message {
+    margin: 12px 0 0;
+    color: #c62828;
+}
+
+@media (max-width: 520px) {
+    .student-profile {
+        width: calc(100% - 32px);
+        margin-top: 20px;
+    }
+
+    .profile-heading p {
+        font-size: 14px;
+    }
+
+    .profile-hero {
+        min-height: 288px;
+        padding: 26px 18px;
+        border-radius: 24px;
+    }
+
+    .profile-photo,
+    .profile-photo-fallback {
+        width: 100px;
+        height: 100px;
+    }
+
+    .hero-name {
+        font-size: 26px;
+    }
+
+    .hero-email {
+        font-size: 15px;
+    }
+
+    .account-section {
+        margin-top: 28px;
+    }
+
+    .section-heading h2 {
+        font-size: 22px;
+    }
+
+    .section-heading p {
+        font-size: 14px;
+    }
+
+    .biodata-row {
+        min-height: 88px;
+        gap: 14px;
+        padding: 16px;
+    }
+
+    .biodata-icon {
+        width: 50px;
+        height: 50px;
+        flex-basis: 50px;
+    }
+
+    .profile-button {
+        min-height: 56px;
+    }
+
+    .profile-fields {
+        grid-template-columns: 1fr;
+        gap: 7px;
+    }
+
+    .profile-fields label:not(:first-child) {
+        margin-top: 6px;
+    }
+
+    .profile-dialog {
+        padding: 20px;
+    }
+
+    .dialog-actions {
+        flex-direction: column-reverse;
+    }
+}
+
+.app-bottom-nav {
+    right: max(12px, calc((100vw - 850px) / 2));
+    bottom: 8px;
+    left: max(12px, calc((100vw - 850px) / 2));
+    justify-content: space-around;
+    height: 78px;
+    border: 1px solid #e1eaf3;
+    border-radius: 28px;
+    box-shadow: 0 6px 24px rgba(37, 73, 112, .12);
+}
+
+body {
+    padding-bottom: 112px !important;
+}

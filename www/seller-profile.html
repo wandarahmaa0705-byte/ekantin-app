@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Penjual - eKantin</title>
+    <link rel="stylesheet" href="seller.css">
+    <link rel="stylesheet" href="app-nav.css">
+</head>
+<body>
+    <header class="seller-header">
+        <a class="brand" href="seller.html">eKantin <span>Kelola Kantin</span></a>
+        <div class="seller-account">
+            <span id="sellerIdentity">Penjual</span>
+            <div class="seller-wallet" aria-label="Saldo kantin">
+                <span class="seller-wallet-icon" aria-hidden="true">💰</span>
+                <span class="seller-wallet-info"><small>Saldo kantin</small><strong id="sellerBalance">Memuat...</strong></span>
+            </div>
+            <button id="logoutButton" class="button button-quiet" type="button">Keluar</button>
+        </div>
+    </header>
+
+    <main class="seller-main">
+        <section class="seller-profile-intro" aria-label="Profil penjual">
+            <span class="seller-profile-avatar" aria-hidden="true">👤</span>
+            <div>
+                <p class="eyebrow">AKUN KANTIN</p>
+                <h1>Profil Penjual</h1>
+                <p>Bagikan ID penjual ini kepada pembeli untuk permintaan top up.</p>
+            </div>
+        </section>
+
+        <section class="seller-profile-card" aria-labelledby="sellerProfileCanteen">
+            <div class="seller-profile-heading">
+                <div>
+                    <p class="eyebrow">INFORMASI AKUN</p>
+                    <h2 id="sellerProfileCanteen">Kantin</h2>
+                    <p>Gunakan ID penjual di bawah ini saat pembeli mengirim permintaan top up.</p>
+                </div>
+            </div>
+
+            <div class="seller-profile-grid">
+                <div class="seller-profile-field">
+                    <span>Nama penjual</span>
+                    <strong id="sellerProfileName">Memuat...</strong>
+                </div>
+                <div class="seller-profile-field">
+                    <span>Email akun</span>
+                    <strong id="sellerProfileEmail">Memuat...</strong>
+                </div>
+            </div>
+
+            <button id="editSellerProfileButton" class="button button-primary seller-profile-edit-button" type="button">Edit Profil</button>
+
+            <div class="seller-profile-id">
+                <div>
+                    <span>ID Penjual</span>
+                    <strong id="sellerProfileId">Memuat...</strong>
+                </div>
+                <button id="copySellerIdButton" class="button button-primary" type="button">Salin ID</button>
+            </div>
+
+            <section class="seller-qris-section" aria-labelledby="sellerQrisTitle">
+                <div>
+                    <h3 id="sellerQrisTitle">QRIS Kantin</h3>
+                    <p>Unggah gambar QRIS resmi kantin. QRIS ini akan ditampilkan saat pembeli memilih pembayaran QRIS.</p>
+                </div>
+                <label class="seller-qris-upload" for="sellerQrisInput">
+                    Pilih gambar QRIS
+                    <input id="sellerQrisInput" type="file" accept="image/png,image/jpeg,image/webp">
+                </label>
+                <p class="seller-qris-note">PNG, JPG, atau WebP. Maksimal 4 MB.</p>
+                <div id="sellerQrisPreview" class="seller-qris-preview" hidden>
+                    <img id="sellerQrisImage" alt="QRIS kantin">
+                    <button id="removeSellerQrisButton" class="button button-quiet" type="button">Hapus QRIS</button>
+                </div>
+                <p id="sellerQrisMessage" class="form-message" role="status" aria-live="polite"></p>
+            </section>
+
+            <p id="sellerProfileMessage" class="form-message" role="status" aria-live="polite"></p>
+        </section>
+
+        <dialog id="sellerProfileDialog" class="seller-profile-dialog">
+            <form id="sellerProfileForm">
+                <div class="seller-profile-dialog-heading">
+                    <div>
+                        <h2>Edit Profil Penjual</h2>
+                        <p>Perbarui informasi akun dan nama kantin.</p>
+                    </div>
+                    <button id="closeSellerProfileDialog" class="button button-quiet" type="button" aria-label="Tutup">×</button>
+                </div>
+                <label for="sellerEditName">Nama penjual</label>
+                <input id="sellerEditName" type="text" maxlength="100" required>
+                <label for="sellerEditEmail">Email</label>
+                <input id="sellerEditEmail" type="email" required>
+                <label for="sellerEditCanteenName">Nama kantin</label>
+                <input id="sellerEditCanteenName" type="text" maxlength="100" required>
+                <p id="sellerProfileFormMessage" class="form-message" role="status" aria-live="polite"></p>
+                <div class="seller-profile-dialog-actions">
+                    <button id="cancelSellerProfileDialog" class="button button-quiet" type="button">Batal</button>
+                    <button class="button button-primary" type="submit">Simpan</button>
+                </div>
+            </form>
+        </dialog>
+    </main>
+    <nav class="app-bottom-nav seller-bottom-nav" aria-label="Navigasi penjual">
+        <a class="app-nav-item" href="seller.html" aria-label="Dashboard penjual"><span aria-hidden="true">🏠</span><small>Dashboard</small></a>
+        <a class="app-nav-item" href="seller-menus.html" aria-label="Menu kantin"><span aria-hidden="true">🍱</span><small>Menu</small></a>
+        <a class="app-nav-item" href="seller-topup.html" aria-label="Top up pembeli"><span aria-hidden="true">💳</span><small>Top up</small></a>
+        <a class="app-nav-item" href="seller-orders.html" aria-label="Pesanan masuk"><span aria-hidden="true">📥</span><small>Pesanan</small><span id="sellerOrderCount" class="seller-nav-count" aria-label="0 pesanan masuk" hidden>0</span></a>
+        <a class="app-nav-item" href="seller-completed.html" aria-label="Pesanan selesai"><span aria-hidden="true">✅</span><small>Selesai</small></a>
+        <a class="app-nav-item active" href="seller-profile.html" aria-label="Profil penjual"><span aria-hidden="true">👤</span><small>Profil</small></a>
+    </nav>
+    <script src="api-config.js"></script>
+    <script src="seller.js"></script>
+</body>
+</html>

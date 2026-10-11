@@ -1,0 +1,20 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Build eKantin APK Debug",
+			"type": "shell",
+			"command": "$env:JAVA_HOME = 'C:\\Program Files\\Android\\Android Studio\\jbr'; $env:ANDROID_HOME = 'C:\\Users\\user\\AppData\\Local\\Android\\Sdk'; $env:ANDROID_SDK_ROOT = $env:ANDROID_HOME; .\\android\\gradlew.bat -p .\\android assembleDebug",
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Build eKantin APK Release",
+			"type": "shell",
+			"command": "$env:JAVA_HOME = 'C:\\Program Files\\Android\\Android Studio\\jbr'; $env:ANDROID_HOME = 'C:\\Users\\user\\AppData\\Local\\Android\\Sdk'; $env:ANDROID_SDK_ROOT = $env:ANDROID_HOME; .\\android\\gradlew.bat -p .\\android assembleRelease",
+			"isBackground": false,
+			"group": "build"
+		}
+	]
+}

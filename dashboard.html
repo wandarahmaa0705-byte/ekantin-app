@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>eKantin - Beranda</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="app-nav.css">
+
+</head>
+
+
+<body>
+
+
+<!-- ==========================================
+     HEADER
+========================================== -->
+
+<header class="header">
+
+    <div class="header-left">
+
+        <img
+            src="kan1.png"
+            alt="Logo eKantin"
+            class="header-logo">
+
+        <div class="brand-name">
+            <strong>eKantin</strong>
+            <span>Makan Sehat, Prestasi Hebat!</span>
+        </div>
+
+    </div>
+
+
+    <div class="header-right">
+
+        <button class="notification" id="notificationButton" type="button" aria-label="Buka pemberitahuan" aria-expanded="false">
+            🔔
+            <span class="notification-dot" id="notificationDot" hidden></span>
+        </button>
+
+        <a class="header-cart" href="cart.html" aria-label="Keranjang, kosong">
+            <span aria-hidden="true">🛒</span>
+            <span class="header-cart-count" id="headerCartCount" hidden></span>
+        </a>
+
+        <div class="notification-panel" id="notificationPanel" hidden>
+            <div class="notification-header">
+                <strong>Pemberitahuan</strong>
+            </div>
+            <div id="notificationList" class="notification-list">
+                <p class="notification-empty">Belum ada pemberitahuan. Semua pemberitahuan akan muncul di sini.</p>
+            </div>
+        </div>
+
+        <a class="profile" href="akun.html" aria-label="Buka profil akun">
+
+            <div class="profile-avatar">
+                <img id="profileAvatarImage" alt="" hidden>
+                <span id="profileAvatarFallback" aria-hidden="true">👤</span>
+            </div>
+
+            <div class="profile-info">
+
+                <strong id="userName">
+                    Pengguna
+                </strong>
+
+                <span>
+                    Siswa
+                </span>
+
+            </div>
+
+        </a>
+
+    </div>
+
+</header>
+
+
+
+<!-- ==========================================
+     MAIN
+========================================== -->
+
+<main class="main-container">
+
+
+    <!-- ======================================
+         WELCOME
+    ======================================= -->
+
+    <section class="welcome-section">
+
+        <div>
+
+            <p class="welcome-small">
+                Selamat datang kembali 👋
+            </p>
+
+            <h1>
+                Halo, <span id="welcomeName">Pengguna</span>!
+            </h1>
+
+            <p class="welcome-text">
+                Mau makan apa hari ini?
+                Pilih makanan sehat favoritmu.
+            </p>
+
+        </div>
+
+
+        <div class="balance-card">
+
+            <div class="balance-title">
+                💰 Saldo eKantin
+            </div>
+
+            <div id="dashboardBalance" class="balance">
+                Rp50.000
+            </div>
+
+            <button onclick="topUp()">
+                + Top Up
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ======================================
+         MENU CEPAT
+    ======================================= -->
+
+    <section>
+
+        <h2 class="section-title">
+            Menu Utama
+        </h2>
+
+
+        <div class="menu-grid">
+
+
+            <!-- Pesan Makanan -->
+
+            <div
+                class="menu-card"
+                onclick="openPage('menu.html')">
+
+                <div class="menu-icon green">
+                    🍱
+                </div>
+
+                <h3>
+                    Pesan Makanan
+                </h3>
+
+                <p>
+                    Pilih makanan dan minuman
+                    favoritmu.
+                </p>
+
+            </div>
+
+
+
+            <!-- Riwayat -->
+
+            <div
+                class="menu-card"
+                onclick="openPage('history.html')">
+
+                <div class="menu-icon blue">
+                    📋
+                </div>
+
+                <h3>
+                    Riwayat
+                </h3>
+
+                <p>
+                    Lihat makanan yang pernah
+                    kamu beli.
+                </p>
+
+            </div>
+
+
+
+            <!-- Gizi -->
+
+            <div
+                class="menu-card"
+                onclick="openPage('nutrition.html')">
+
+                <div class="menu-icon orange">
+                    🥗
+                </div>
+
+                <h3>
+                    Informasi Gizi
+                </h3>
+
+                <p>
+                    Cek kandungan gizi makanan.
+                </p>
+
+            </div>
+
+
+
+            <!-- Rating -->
+
+            <div
+                class="menu-card"
+                onclick="openPage('review.html')">
+
+                <div class="menu-icon purple">
+                    ⭐
+                </div>
+
+                <h3>
+                    Rating & Review
+                </h3>
+
+                <p>
+                    Berikan penilaian makanan.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ======================================
+         PROMO
+    ======================================= -->
+
+    <section class="promo-section">
+
+        <div class="promo-content">
+
+            <span class="promo-label">
+                🌱 PILIHAN SEHAT
+            </span>
+
+            <h2>
+                Makan Sehat,<br>
+                Tubuh Kuat!
+            </h2>
+
+            <p>
+                Pilih makanan bergizi untuk
+                mendukung aktivitasmu di sekolah.
+            </p>
+
+            <button
+                onclick="openPage('menu.html')">
+
+                Lihat Menu
+
+            </button>
+
+        </div>
+
+
+        <div class="promo-image">
+            🥗
+        </div>
+
+    </section>
+
+
+
+    <!-- ======================================
+         MENU POPULER
+    ======================================= -->
+
+    <section>
+
+        <div class="section-header">
+
+            <h2 class="section-title">
+                Menu Populer
+            </h2>
+
+            <a
+                href="menu.html"
+                class="see-all">
+
+                Lihat Semua →
+
+            </a>
+
+        </div>
+
+
+        <div id="popularMenuList" class="food-grid"></div>
+        <p id="popularMenuEmpty" class="popular-menu-empty" hidden>Menu populer akan muncul setelah ada pesanan dari pembeli.</p>
+
+    </section>
+
+
+</main>
+
+
+
+<!-- ==========================================
+     BOTTOM NAVIGATION
+========================================== -->
+
+<nav class="app-bottom-nav" aria-label="Navigasi utama">
+
+    <a
+        href="dashboard.html"
+        class="app-nav-item active">
+
+        <span>🏠</span>
+        <small>Beranda</small>
+
+    </a>
+
+
+    <a
+        href="menu.html"
+        class="app-nav-item">
+
+        <span>🍱</span>
+        <small>Menu</small>
+
+    </a>
+
+
+    <a
+        href="history.html"
+        class="app-nav-item">
+
+        <span>📋</span>
+        <small>Riwayat</small>
+
+    </a>
+
+
+    <a
+        href="nutrition.html"
+        class="app-nav-item">
+
+        <span>🥗</span>
+        <small>Gizi</small>
+
+    </a>
+
+
+    <a
+        href="akun.html"
+        class="app-nav-item">
+
+        <span>👤</span>
+        <small>Profil</small>
+
+    </a>
+
+</nav>
+
+
+
+<!-- ==========================================
+     JAVASCRIPT
+========================================== -->
+
+<script src="api-config.js"></script>
+<script src="dashboard.js"></script>
+
+
+</body>
+</html>

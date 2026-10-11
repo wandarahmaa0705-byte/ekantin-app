@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>eKantin - Daftar</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<div class="login-container">
+
+
+    <!-- ==============================
+         BAGIAN KIRI
+    =============================== -->
+
+    <div class="illustration-section">
+
+        <div class="logo-wrapper">
+
+            <img
+                src="kan1.png"
+                alt="Logo eKantin"
+                class="logo">
+
+        </div>
+
+
+        <h1>eKantin</h1>
+
+
+        <p class="tagline">
+
+            Makan Sehat,<br>
+            Prestasi Hebat!
+
+        </p>
+
+
+        <p class="description">
+
+            Bergabung dan nikmati<br>
+            kemudahan memesan makanan<br>
+            di kantin sekolah.
+
+        </p>
+
+    </div>
+
+
+
+    <!-- ==============================
+         BAGIAN DAFTAR
+    =============================== -->
+
+    <div class="login-section">
+
+
+        <div class="login-box">
+
+
+            <div class="welcome">
+
+                <h2>
+                    Buat Akun
+                </h2>
+
+                <p>
+                    Daftarkan akun untuk mulai
+                    menggunakan eKantin.
+                </p>
+
+            </div>
+
+
+
+            <!-- FORM DAFTAR -->
+
+            <form id="registerForm">
+
+
+                <!-- NAMA -->
+
+                <div class="input-group">
+
+                    <label for="name">
+                        Nama Lengkap
+                    </label>
+
+
+                    <div class="input-wrapper">
+
+                        <span class="input-icon">
+                            👤
+                        </span>
+
+
+                        <input
+                            type="text"
+                            id="name"
+                            placeholder="Masukkan nama lengkap">
+
+                    </div>
+
+
+                    <small
+                        class="error-message"
+                        id="nameError">
+                    </small>
+
+                </div>
+
+
+
+                <div class="input-group">
+                    <label for="accountRole">Daftar sebagai</label>
+                    <div class="input-wrapper">
+                        <select id="accountRole" required>
+                            <option value="buyer">Pembeli</option>
+                            <option value="seller">Penjual kantin</option>
+                        </select>
+                    </div>
+                    <small class="error-message" id="roleError"></small>
+                </div>
+
+
+                <div class="input-group" id="buyerTypeGroup">
+                    <label for="buyerType">Kategori pembeli</label>
+                    <div class="input-wrapper">
+                        <select id="buyerType" required>
+                            <option value="student">Siswa</option>
+                            <option value="teacher">Guru</option>
+                        </select>
+                    </div>
+                </div>
+
+
+                <div class="input-group" id="canteenGroup" hidden>
+                    <label for="canteenName">Nama kantin</label>
+                    <div class="input-wrapper">
+                        <span class="input-icon">🏪</span>
+                        <input type="text" id="canteenName" placeholder="Contoh: Kantin Sehat">
+                    </div>
+                    <small class="error-message" id="canteenError"></small>
+                </div>
+
+
+                <!-- NOMOR TELEPON -->
+
+                <div class="input-group" id="identityGroup">
+
+                    <label for="nis" id="identityLabel">
+                        Nomor Telepon
+                    </label>
+
+
+                    <div class="input-wrapper">
+
+                        <span class="input-icon">
+                            📞
+                        </span>
+
+
+                        <input
+                            type="tel"
+                            id="nis"
+                            placeholder="Masukkan nomor telepon">
+
+                    </div>
+
+
+                    <small
+                        class="error-message"
+                        id="nisError">
+                    </small>
+
+                </div>
+
+
+
+                <!-- EMAIL -->
+
+                <div class="input-group">
+
+                    <label for="email">
+                        Email
+                    </label>
+
+
+                    <div class="input-wrapper">
+
+                        <span class="input-icon">
+                            ✉️
+                        </span>
+
+
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="Masukkan email">
+
+                    </div>
+
+
+                    <small
+                        class="error-message"
+                        id="emailError">
+                    </small>
+
+                </div>
+
+
+
+                <!-- PASSWORD -->
+
+                <div class="input-group">
+
+                    <label for="registerPassword">
+                        Password
+                    </label>
+
+
+                    <div class="input-wrapper">
+
+                        <span class="input-icon">
+                            🔒
+                        </span>
+
+
+                        <input
+                            type="password"
+                            id="registerPassword"
+                            placeholder="Minimal 6 karakter">
+
+
+                        <button
+                            type="button"
+                            class="show-password"
+                            id="showRegisterPassword">
+
+                            👁
+
+                        </button>
+
+                    </div>
+
+
+                    <small
+                        class="error-message"
+                        id="registerPasswordError">
+                    </small>
+
+                </div>
+
+
+
+                <!-- KONFIRMASI PASSWORD -->
+
+                <div class="input-group">
+
+                    <label for="confirmPassword">
+                        Konfirmasi Password
+                    </label>
+
+
+                    <div class="input-wrapper">
+
+                        <span class="input-icon">
+                            🔐
+                        </span>
+
+
+                        <input
+                            type="password"
+                            id="confirmPassword"
+                            placeholder="Ulangi password">
+
+
+                        <button
+                            type="button"
+                            class="show-password"
+                            id="showConfirmPassword">
+
+                            👁
+
+                        </button>
+
+                    </div>
+
+
+                    <small
+                        class="error-message"
+                        id="confirmPasswordError">
+                    </small>
+
+                </div>
+
+
+
+                <!-- TOMBOL DAFTAR -->
+
+                <button
+                    type="submit"
+                    class="login-button"
+                    id="registerButton">
+
+                    Daftar
+
+                </button>
+
+
+            </form>
+
+
+
+            <!-- KEMBALI LOGIN -->
+
+            <div class="register">
+
+                <p>
+
+                    Sudah punya akun?
+
+                    <a
+                        href="index.html">
+
+                        Masuk
+
+                    </a>
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- JAVASCRIPT -->
+
+<script src="api-config.js"></script>
+<script src="register.js">
+
+
+// ==========================================
+// ELEMENT
+// ==========================================
+
+const registerForm =
+    document.getElementById("registerForm");
+
+const nameInput =
+    document.getElementById("name");
+
+const nisInput =
+    document.getElementById("nis");
+
+const emailInput =
+    document.getElementById("email");
+
+const registerPassword =
+    document.getElementById("registerPassword");
+
+const confirmPassword =
+    document.getElementById("confirmPassword");
+
+
+
+// ==========================================
+// SHOW PASSWORD
+// ==========================================
+
+document
+    .getElementById("showRegisterPassword")
+    .addEventListener("click", function () {
+
+        if (
+            registerPassword.type === "password"
+        ) {
+
+            registerPassword.type = "text";
+
+            this.textContent = "🙈";
+
+        } else {
+
+            registerPassword.type = "password";
+
+            this.textContent = "👁";
+
+        }
+
+    });
+
+
+
+document
+    .getElementById("showConfirmPassword")
+    .addEventListener("click", function () {
+
+        if (
+            confirmPassword.type === "password"
+        ) {
+
+            confirmPassword.type = "text";
+
+            this.textContent = "🙈";
+
+        } else {
+
+            confirmPassword.type = "password";
+
+            this.textContent = "👁";
+
+        }
+
+    });
+
+
+
+// ==========================================
+// FORM DAFTAR
+// ==========================================
+
+registerForm.addEventListener(
+    "submit",
+    function (event) {
+
+        event.preventDefault();
+
+
+        let valid = true;
+
+
+        // Reset error
+
+        document.getElementById(
+            "nameError"
+        ).textContent = "";
+
+        document.getElementById(
+            "nisError"
+        ).textContent = "";
+
+        document.getElementById(
+            "emailError"
+        ).textContent = "";
+
+        document.getElementById(
+            "registerPasswordError"
+        ).textContent = "";
+
+        document.getElementById(
+            "confirmPasswordError"
+        ).textContent = "";
+
+
+
+        // ==================================
+        // VALIDASI NAMA
+        // ==================================
+
+        if (
+            nameInput.value.trim() === ""
+        ) {
+
+            document.getElementById(
+                "nameError"
+            ).textContent =
+                "Nama lengkap harus diisi.";
+
+            valid = false;
+
+        }
+
+
+
+        // ==================================
+        // VALIDASI NOMOR TELEPON
+        // ==================================
+
+        if (
+            nisInput.value.trim() === ""
+        ) {
+
+            document.getElementById(
+                "nisError"
+            ).textContent =
+                "Nomor telepon harus diisi.";
+
+            valid = false;
+
+        }
+
+
+
+        // ==================================
+        // VALIDASI EMAIL
+        // ==================================
+
+        if (
+            emailInput.value.trim() === ""
+        ) {
+
+            document.getElementById(
+                "emailError"
+            ).textContent =
+                "Email harus diisi.";
+
+            valid = false;
+
+        }
+
+
+
+        // ==================================
+        // VALIDASI PASSWORD
+        // ==================================
+
+        if (
+            registerPassword.value.length < 6
+        ) {
+
+            document.getElementById(
+                "registerPasswordError"
+            ).textContent =
+                "Password minimal 6 karakter.";
+
+            valid = false;
+
+        }
+
+
+
+        // ==================================
+        // VALIDASI KONFIRMASI
+        // ==================================
+
+        if (
+            confirmPassword.value !==
+            registerPassword.value
+        ) {
+
+            document.getElementById(
+                "confirmPasswordError"
+            ).textContent =
+                "Password tidak sama.";
+
+            valid = false;
+
+        }
+
+
+
+        // ==================================
+        // BERHASIL
+        // ==================================
+
+        if (valid) {
+
+            // Simpan data sementara
+            // menggunakan localStorage
+
+            localStorage.setItem(
+                "userName",
+                nameInput.value
+            );
+
+            localStorage.setItem(
+                "userNIS",
+                nisInput.value
+            );
+
+            localStorage.setItem(
+                "userEmail",
+                emailInput.value
+            );
+
+
+            alert(
+                "Pendaftaran berhasil!\n\n" +
+                "Silakan masuk menggunakan akun Anda."
+            );
+
+
+            // Kembali ke login
+
+            window.location.href =
+                "index.html";
+
+        }
+
+    }
+);
+
+</script>
+
+
+</body>
+
+</html>

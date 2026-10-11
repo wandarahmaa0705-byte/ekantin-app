@@ -1,0 +1,26 @@
+Akun demo eKantin
+
+1) Penjual
+- Email: seller@demo.ekantin
+- Password: Demo123!
+- Role: seller
+- Nama kantin: Kantin Demo
+
+2) Pembeli Siswa
+- Email: student@demo.ekantin
+- Password: Demo123!
+- Role: buyer
+- Tipe: student
+- Identity code: STU-001
+
+3) Pembeli Guru
+- Email: teacher@demo.ekantin
+- Password: Demo123!
+- Role: buyer
+- Tipe: teacher
+- Identity code: GURU-001
+
+Catatan:
+- Gunakan URL backend yang benar, misalnya http://192.168.1.10:3000 atau domain publik.
+- Untuk jaringan lokal, gunakan IP komputer/laptop yang menjalankan server.
+- Untuk internet publik, gunakan hosting/server yang dapat diakses dari HP lain.

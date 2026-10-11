@@ -1,0 +1,13 @@
+﻿{
+  "appId": "com.ekantin.app",
+  "appName": "eKantin",
+  "webDir": "www",
+  "bundledWebRuntime": false,
+  "server": {
+    "androidScheme": "http",
+    "cleartext": true,
+    "allowNavigation": [
+      "*"
+    ]
+  }
+}

@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>eKantin - Detail Makanan</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="detail-menu.css">
+    <link rel="stylesheet" href="app-nav.css">
+
+</head>
+
+
+<body>
+
+
+<!-- ==========================================
+     HEADER
+========================================== -->
+
+<header class="header">
+
+    <div class="header-left">
+
+        <button
+            class="back-button"
+            onclick="goBack()">
+
+            ←
+
+        </button>
+
+
+        <img
+            src="kan1.png"
+            alt="Logo eKantin"
+            class="header-logo">
+
+
+        <div class="brand-name">
+
+            <strong>eKantin</strong>
+
+            <span>
+                Makan Sehat, Prestasi Hebat!
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <button
+        class="cart-button"
+        onclick="openCart()">
+
+        🛒
+
+        <span
+            id="cartCount"
+            class="cart-count">
+
+            0
+
+        </span>
+
+    </button>
+
+</header>
+
+
+
+<!-- ==========================================
+     DETAIL MAKANAN
+========================================== -->
+
+<main class="detail-container">
+
+
+    <!-- ======================================
+         GAMBAR MAKANAN
+    ======================================= -->
+
+    <section class="food-preview">
+
+    <div class="food-image">
+
+        <img
+            id="foodImage"
+            src="kanmenu1.jpg"
+            alt="Nasi Ayam Sehat"
+        >
+
+    </div>
+
+</section>
+
+
+
+    <!-- ======================================
+         INFORMASI MAKANAN
+    ======================================= -->
+
+    <section class="food-detail">
+
+
+        <div class="healthy-label">
+
+            ✓ Pilihan Sehat
+
+        </div>
+
+
+        <h1 id="foodName">
+            Nasi Ayam Sehat
+        </h1>
+
+
+        <div
+            id="foodPrice"
+            class="food-price">
+
+            Rp15.000
+
+        </div>
+
+        <p id="availabilityStatus" class="availability-status" hidden>Menu sedang sold out.</p>
+
+
+        <p id="foodDescription"
+           class="food-description">
+
+            Nasi dengan ayam panggang,
+            sayuran dan telur.
+
+        </p>
+
+
+
+        <!-- ==================================
+             INFORMASI GIZI
+        =================================== -->
+
+        <h2>
+            Informasi Gizi
+        </h2>
+
+
+        <div class="nutrition-grid">
+
+
+            <div class="nutrition-card">
+
+                <span>
+                    🔥
+                </span>
+
+                <strong id="calories">
+                    450
+                </strong>
+
+                <small>
+                    Kalori
+                </small>
+
+            </div>
+
+
+            <div class="nutrition-card">
+
+                <span>
+                    💪
+                </span>
+
+                <strong id="protein">
+                    25g
+                </strong>
+
+                <small>
+                    Protein
+                </small>
+
+            </div>
+
+
+            <div class="nutrition-card">
+
+                <span>
+                    🍚
+                </span>
+
+                <strong id="carbs">
+                    55g
+                </strong>
+
+                <small>
+                    Karbohidrat
+                </small>
+
+            </div>
+
+
+            <div class="nutrition-card">
+
+                <span>
+                    🥑
+                </span>
+
+                <strong id="fat">
+                    12g
+                </strong>
+
+                <small>
+                    Lemak
+                </small>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- ==================================
+             JUMLAH
+        =================================== -->
+
+        <div class="quantity-section">
+
+    <h2>
+        Jumlah Pesanan
+    </h2>
+
+    <div class="quantity-control">
+
+        <button
+            type="button"
+            onclick="decreaseQuantity()">
+            −
+        </button>
+
+        <span id="quantity">
+            1
+        </span>
+
+        <button
+            type="button"
+            onclick="increaseQuantity()">
+            +
+        </button>
+
+    </div>
+
+</div>
+
+
+
+        <!-- ==================================
+             TOTAL
+        =================================== -->
+
+        <div class="total-section">
+
+            <span>
+                Total
+            </span>
+
+
+            <strong id="totalPrice">
+                Rp15.000
+            </strong>
+
+        </div>
+
+
+
+        <!-- ==================================
+             TAMBAH KERANJANG
+        =================================== -->
+
+        <button
+            class="add-cart-button"
+            onclick="addToCart()">
+
+            🛒 Tambah ke Keranjang
+
+        </button>
+
+
+    </section>
+
+
+</main>
+
+
+
+<!-- ==========================================
+     JAVASCRIPT
+========================================== -->
+
+<nav class="app-bottom-nav" aria-label="Navigasi utama">
+    <a class="app-nav-item" href="dashboard.html"><span>🏠</span><small>Beranda</small></a>
+    <a class="app-nav-item active" href="menu.html"><span>🍱</span><small>Menu</small></a>
+    <a class="app-nav-item" href="history.html"><span>📋</span><small>Riwayat</small></a>
+    <a class="app-nav-item" href="nutrition.html"><span>🥗</span><small>Gizi</small></a>
+    <a class="app-nav-item" href="akun.html"><span>👤</span><small>Profil</small></a>
+</nav>
+
+<script src="api-config.js"></script>
+<script src="detail-menu.js"></script>
+
+
+</body>
+
+</html>

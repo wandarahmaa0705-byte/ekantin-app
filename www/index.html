@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>eKantin - Login</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="login-container">
+
+        <!-- BAGIAN ILUSTRASI -->
+        <div class="illustration-section">
+
+            <div class="logo-wrapper">
+                <img src="kan1.png"
+                     alt="Logo eKantin"
+                     class="logo">
+            </div>
+
+            <h1>eKantin</h1>
+
+            <p class="tagline">
+                Makan Sehat,<br>
+                Prestasi Hebat!
+            </p>
+
+            <p class="description">
+                Pesan makanan lebih mudah,<br>
+                sehat, praktis, dan tanpa antre.
+            </p>
+
+        </div>
+
+
+        <!-- BAGIAN LOGIN -->
+        <div class="login-section">
+
+            <div class="login-box">
+
+                <div class="welcome">
+                    <span class="welcome-badge">Aplikasi kantin sekolah</span>
+                    <h2>Selamat Datang!</h2>
+
+                    <p>
+                        Masuk untuk melanjutkan<br>
+                        ke eKantin
+                    </p>
+                </div>
+
+
+                <!-- FORM LOGIN -->
+                <form id="loginForm">
+
+                    <!-- EMAIL / NOMOR TELEPON -->
+                    <div class="input-group">
+
+                        <label for="username">
+                            Email / Nomor Telepon
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <span class="input-icon">👤</span>
+
+                            <input
+                                type="text"
+                                id="username"
+                                name="username"
+                                placeholder="Masukkan email atau nomor telepon"
+                                autocomplete="username"
+                            >
+
+                        </div>
+
+                        <small class="error-message" id="usernameError"></small>
+
+                    </div>
+
+
+                    <!-- PASSWORD -->
+                    <div class="input-group">
+
+                        <label for="password">
+                            Password
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <span class="input-icon">🔒</span>
+
+                            <input
+                                type="password"
+                                id="password"
+                                name="password"
+                                placeholder="Masukkan Password"
+                                autocomplete="current-password"
+                            >
+
+                            <button
+                                type="button"
+                                class="show-password"
+                                id="showPassword"
+                                aria-label="Tampilkan password">
+                                👁
+                            </button>
+
+                        </div>
+
+                        <small class="error-message" id="passwordError"></small>
+
+                    </div>
+
+
+                    <!-- LUPA PASSWORD -->
+                    <div class="forgot-password">
+
+                        <a href="#" id="forgotPassword">
+                            Lupa password?
+                        </a>
+
+                    </div>
+
+
+                    <!-- TOMBOL LOGIN -->
+                    <button
+                        type="submit"
+                        class="login-button"
+                        id="loginButton">
+
+                        <span id="loginText">
+                            Masuk
+                        </span>
+
+                    </button>
+
+                </form>
+
+
+                <!-- PEMBATAS -->
+                <div class="divider">
+
+                    <span></span>
+
+                    <p>atau masuk dengan</p>
+
+                    <span></span>
+
+                </div>
+
+
+                <!-- GOOGLE -->
+                <button
+                    type="button"
+                    class="google-button"
+                    id="googleButton">
+
+                    <span class="google-icon">
+                        G
+                    </span>
+
+                    Masuk dengan Google
+
+                </button>
+
+
+                <!-- DAFTAR -->
+                <div class="register">
+
+                    <p>
+                        Belum punya akun?
+
+                        <a href="#" id="registerLink">
+                            Daftar
+                        </a>
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- JAVASCRIPT -->
+    <script src="api-config.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>

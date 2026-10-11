@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kelola Kantin - eKantin</title>
+    <link rel="stylesheet" href="seller.css">
+    <link rel="stylesheet" href="app-nav.css">
+</head>
+<body>
+    <header class="seller-header">
+        <a class="brand" href="seller.html">eKantin <span>Kelola Kantin</span></a>
+        <div class="seller-account">
+            <span id="sellerIdentity">Penjual</span>
+            <div class="seller-wallet" aria-label="Saldo kantin">
+                <span class="seller-wallet-icon" aria-hidden="true">💰</span>
+                <span class="seller-wallet-info"><small>Saldo kantin</small><strong id="sellerBalance">Memuat...</strong></span>
+            </div>
+            <button id="logoutButton" class="button button-quiet" type="button">Keluar</button>
+        </div>
+    </header>
+
+    <main class="seller-main">
+        <section class="welcome-row">
+            <div>
+                <p class="eyebrow">DASHBOARD PENJUAL</p>
+                <h1 id="canteenTitle">Kantin</h1>
+                <p>Kelola daftar makanan dan minuman kantinmu.</p>
+            </div>
+            <a class="button button-quiet" href="menu.html">Lihat menu pembeli</a>
+        </section>
+
+
+        <section class="seller-layout add-menu-layout">
+            <form id="menuForm" class="menu-form">
+                <h2 id="formTitle">Tambah menu</h2>
+                <label for="menuName">Nama menu</label>
+                <input id="menuName" name="name" maxlength="100" required>
+
+                <label for="menuDescription">Deskripsi</label>
+                <textarea id="menuDescription" name="description" rows="3" maxlength="500"></textarea>
+
+                <label for="menuCategory">Kategori</label>
+                <select id="menuCategory" name="category" required>
+                    <option value="makanan">Makanan</option>
+                    <option value="minuman">Minuman</option>
+                    <option value="snack">Snack</option>
+                    <option value="makanan sehat">Makanan sehat</option>
+                    <option value="minuman sehat">Minuman sehat</option>
+                    <option value="snack sehat">Snack sehat</option>
+                </select>
+
+                <label for="menuPrice">Harga (Rp)</label>
+                <input id="menuPrice" name="price" type="number" min="1" max="10000000" step="1" required>
+
+                <fieldset class="nutrition-fields">
+                    <legend>Informasi gizi per porsi</legend>
+                    <div>
+                        <label for="menuCalories">🔥 Kalori (kkal)</label>
+                        <input id="menuCalories" name="calories" type="number" min="0" max="100000" step="1" inputmode="decimal">
+                    </div>
+                    <div>
+                        <label for="menuProtein">💪 Protein (g)</label>
+                        <input id="menuProtein" name="protein" type="number" min="0" max="10000" step="0.1" inputmode="decimal">
+                    </div>
+                    <div>
+                        <label for="menuCarbs">🍚 Karbohidrat (g)</label>
+                        <input id="menuCarbs" name="carbs" type="number" min="0" max="10000" step="0.1" inputmode="decimal">
+                    </div>
+                    <div>
+                        <label for="menuFat">🥑 Lemak (g)</label>
+                        <input id="menuFat" name="fat" type="number" min="0" max="10000" step="0.1" inputmode="decimal">
+                    </div>
+                </fieldset>
+
+                <label for="menuImage">Foto menu</label>
+                <input id="menuImage" name="image" type="file" accept="image/png,image/jpeg,image/webp">
+                <p class="field-note">PNG, JPG, atau WebP. Maksimal 4 MB.</p>
+                <img id="menuImagePreview" class="menu-image-preview" alt="Pratinjau foto menu" hidden>
+                <p id="imageUploadStatus" class="field-note" role="status"></p>
+
+                <p id="formMessage" class="form-message" role="status"></p>
+                <div class="form-actions">
+                    <button id="saveMenuButton" class="button button-primary" type="submit">Simpan menu</button>
+                    <button id="cancelEditButton" class="button button-quiet" type="button" hidden>Batal</button>
+                </div>
+            </form>
+
+        </section>
+    </main>
+    <nav class="app-bottom-nav seller-bottom-nav" aria-label="Navigasi penjual">
+        <a class="app-nav-item active" href="seller.html" aria-label="Dashboard penjual"><span aria-hidden="true">🏠</span><small>Dashboard</small></a>
+        <a class="app-nav-item" href="seller-menus.html" aria-label="Menu kantin"><span aria-hidden="true">🍱</span><small>Menu</small></a>
+        <a class="app-nav-item" href="seller-topup.html" aria-label="Top up pembeli"><span aria-hidden="true">💳</span><small>Top up</small></a>
+        <a class="app-nav-item" href="seller-orders.html" aria-label="Pesanan masuk"><span aria-hidden="true">📥</span><small>Pesanan</small><span id="sellerOrderCount" class="seller-nav-count" aria-label="0 pesanan masuk" hidden>0</span></a>
+        <a class="app-nav-item" href="seller-completed.html" aria-label="Pesanan selesai"><span aria-hidden="true">✅</span><small>Selesai</small></a>
+        <a class="app-nav-item" href="seller-profile.html" aria-label="Profil penjual"><span aria-hidden="true">👤</span><small>Profil</small></a>
+    </nav>
+    <script src="api-config.js"></script>
+    <script src="seller.js"></script>
+</body>
+</html>

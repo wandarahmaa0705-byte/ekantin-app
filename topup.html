@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Top Up Saldo - eKantin</title>
+
+    <link rel="stylesheet" href="topup.css">
+    <link rel="stylesheet" href="app-nav.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="topup-header">
+
+        <button class="back-button" onclick="goBack()">
+            ←
+        </button>
+
+        <div>
+            <h1>Top Up Saldo</h1>
+            <p>Tambah saldo eKantin kamu</p>
+        </div>
+
+    </header>
+
+
+    <!-- CONTENT -->
+    <main class="topup-container">
+
+
+        <!-- SALDO SAAT INI -->
+        <section class="balance-card">
+
+            <div class="balance-label">
+                Saldo Saat Ini
+            </div>
+
+            <div id="currentBalance" class="balance-amount">
+                Rp50.000
+            </div>
+
+        </section>
+
+        <section class="info-card">
+            <h3>Cara top up</h3>
+            <ol>
+                <li>Pilih nominal dan metode transfer.</li>
+                <li>Masukkan ID penjual tujuan.</li>
+                <li>Transfer manual ke penjual dan kirim bukti.</li>
+                <li>Tunggu penjual menyetujui agar saldo bertambah.</li>
+            </ol>
+        </section>
+
+
+
+        <!-- PILIH NOMINAL -->
+        <section class="topup-section">
+
+            <h2>Pilih Nominal</h2>
+
+            <div class="nominal-grid">
+
+                <button
+                    class="nominal-button"
+                    onclick="selectAmount(10000)">
+                    Rp10.000
+                </button>
+
+                <button
+                    class="nominal-button"
+                    onclick="selectAmount(20000)">
+                    Rp20.000
+                </button>
+
+                <button
+                    class="nominal-button"
+                    onclick="selectAmount(50000)">
+                    Rp50.000
+                </button>
+
+                <button
+                    class="nominal-button"
+                    onclick="selectAmount(100000)">
+                    Rp100.000
+                </button>
+
+                <button
+                    class="nominal-button"
+                    onclick="selectAmount(200000)">
+                    Rp200.000
+                </button>
+
+                <button
+                    class="nominal-button"
+                    onclick="selectAmount(500000)">
+                    Rp500.000
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- NOMINAL CUSTOM -->
+        <section class="custom-section">
+
+            <label for="customAmount">
+                Atau masukkan nominal sendiri
+            </label>
+
+            <div class="input-wrapper">
+
+                <span>Rp</span>
+
+                <input
+                    type="number"
+                    id="customAmount"
+                    placeholder="Contoh: 75000"
+                    min="1000"
+                    oninput="customAmountChanged()">
+
+            </div>
+
+            <small>
+                Minimal top up Rp1.000
+            </small>
+
+        </section>
+
+
+
+        <!-- METODE PEMBAYARAN -->
+        <section class="custom-section">
+
+            <label for="paymentMethod">
+                Metode pembayaran
+            </label>
+
+            <div class="input-wrapper">
+                <select id="paymentMethod" style="width: 100%; border: none; background: transparent; font: inherit; color: inherit;">
+                    <option value="Dana">Dana</option>
+                    <option value="Gopay">Gopay</option>
+                    <option value="QRIS">QRIS Kantin</option>
+                    <option value="Bank Transfer">Bank Transfer</option>
+                </select>
+            </div>
+            <small style="margin-top:10px; display:block; color:#666;">
+                Transfer manual ke penjual sesuai metode yang dipilih, lalu kirim bukti pembayaran.
+            </small>
+
+        </section>
+
+        <section class="custom-section">
+
+            <label for="sellerId">
+                ID penjual tujuan
+            </label>
+
+            <div class="input-wrapper">
+                <input
+                    type="number"
+                    id="sellerId"
+                    placeholder="Contoh: 2"
+                    min="1">
+            </div>
+            <small style="margin-top:10px; display:block; color:#666;">
+                Masukkan ID penjual yang menerima transfer Anda.
+            </small>
+
+        </section>
+
+        <section class="custom-section">
+
+            <label for="paymentProof">
+                Bukti transfer / catatan pembayaran
+            </label>
+
+            <div class="input-wrapper">
+                <input
+                    type="text"
+                    id="paymentProof"
+                    placeholder="Contoh: Transfer Dana Rp75.000, no ref 12345"
+                    maxlength="200">
+            </div>
+            <small style="margin-top:10px; display:block; color:#666;">
+                Isi nama metode, nominal, atau nomor referensi transfer agar penjual mudah memeriksa.
+            </small>
+
+        </section>
+
+        <section class="custom-section">
+            <label for="paymentProofImage">
+                Upload bukti transfer (opsional)
+            </label>
+            <input id="paymentProofImage" type="file" accept="image/png,image/jpeg,image/webp" />
+            <small style="margin-top:10px; display:block; color:#666;">
+                Upload screenshot atau foto bukti transfer agar penjual dapat menyetujui top up Anda.
+            </small>
+            <div class="proof-preview-box" id="proofPreviewBox" hidden>
+                <img id="paymentProofPreview" class="payment-proof-preview" alt="Preview bukti transfer" />
+            </div>
+        </section>
+
+        <!-- NOMINAL TERPILIH -->
+        <section class="selected-section">
+
+            <div>
+                <span>Nominal Top Up</span>
+
+                <strong id="selectedAmount">
+                    Rp0
+                </strong>
+            </div>
+
+        </section>
+
+
+
+        <!-- BUTTON -->
+        <button
+            class="topup-button"
+            onclick="processTopUp()">
+
+            Kirim Request Top Up
+
+        </button>
+
+
+
+        <!-- RIWAYAT -->
+        <section class="history-section">
+
+            <div class="history-header">
+
+                <h2>Status Request Top Up</h2>
+
+            </div>
+
+            <div id="topupRequestStatus">
+
+                <!-- Status request pembeli akan muncul di sini -->
+
+            </div>
+
+        </section>
+
+        <section class="history-section">
+
+            <div class="history-header">
+
+                <h2>Riwayat Top Up</h2>
+
+            </div>
+
+            <div id="topupHistory">
+
+                <!-- Riwayat akan muncul di sini -->
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <nav class="app-bottom-nav" aria-label="Navigasi utama">
+        <a class="app-nav-item" href="dashboard.html"><span>🏠</span><small>Beranda</small></a>
+        <a class="app-nav-item" href="menu.html"><span>🍱</span><small>Menu</small></a>
+        <a class="app-nav-item" href="history.html"><span>📋</span><small>Riwayat</small></a>
+        <a class="app-nav-item" href="nutrition.html"><span>🥗</span><small>Gizi</small></a>
+        <a class="app-nav-item" href="akun.html"><span>👤</span><small>Profil</small></a>
+    </nav>
+
+    <script src="api-config.js"></script>
+<script src="topup.js"></script>
+
+</body>
+
+</html>

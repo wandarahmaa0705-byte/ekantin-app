@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rating & Review - eKantin</title>
+    <link rel="stylesheet" href="review.css">
+    <link rel="stylesheet" href="app-nav.css">
+</head>
+
+<body>
+    <header class="review-header">
+        <button class="back-button" onclick="goBack()" aria-label="Kembali">←</button>
+        <div>
+            <h1>Rating & Review</h1>
+            <p>Bagikan pengalaman makanmu</p>
+        </div>
+    </header>
+
+    <main class="review-container">
+        <section class="review-form-section">
+            <div class="section-heading">
+                <div class="review-icon">⭐</div>
+                <div>
+                    <h2>Beri penilaian</h2>
+                    <p>Ulas menu yang sudah kamu coba.</p>
+                </div>
+            </div>
+
+            <form id="reviewForm">
+                <label for="foodSelect">Pilih menu</label>
+                <select id="foodSelect" required>
+                    <option value="">Pilih makanan atau minuman</option>
+                    <option>Nasi Ayam Sehat</option>
+                    <option>Nasi Ikan</option>
+                    <option>Sandwich Sayur</option>
+                    <option>Susu Segar</option>
+                    <option>Jus Buah</option>
+                    <option>Roti Gandum</option>
+                </select>
+
+                <fieldset>
+                    <legend>Rating</legend>
+                    <div class="star-picker" role="radiogroup" aria-label="Pilih rating">
+                        <input id="star5" type="radio" name="rating" value="5" required>
+                        <label for="star5" title="5 bintang">★</label>
+                        <input id="star4" type="radio" name="rating" value="4">
+                        <label for="star4" title="4 bintang">★</label>
+                        <input id="star3" type="radio" name="rating" value="3">
+                        <label for="star3" title="3 bintang">★</label>
+                        <input id="star2" type="radio" name="rating" value="2">
+                        <label for="star2" title="2 bintang">★</label>
+                        <input id="star1" type="radio" name="rating" value="1">
+                        <label for="star1" title="1 bintang">★</label>
+                    </div>
+                </fieldset>
+
+                <label for="reviewText">Komentar</label>
+                <textarea id="reviewText" maxlength="300" placeholder="Ceritakan pengalamanmu..." required></textarea>
+                <button class="submit-button" type="submit">Kirim Review</button>
+            </form>
+        </section>
+
+        <section class="submitted-section">
+            <div class="submitted-heading">
+                <h2>Review kamu</h2>
+                <button class="clear-button" type="button" onclick="clearReviews()">Hapus Semua</button>
+            </div>
+            <div id="reviewList" class="review-list"></div>
+        </section>
+    </main>
+
+    <nav class="app-bottom-nav" aria-label="Navigasi utama">
+        <a class="app-nav-item" href="dashboard.html"><span>🏠</span><small>Beranda</small></a>
+        <a class="app-nav-item" href="menu.html"><span>🍱</span><small>Menu</small></a>
+        <a class="app-nav-item" href="history.html"><span>📋</span><small>Riwayat</small></a>
+        <a class="app-nav-item" href="nutrition.html"><span>🥗</span><small>Gizi</small></a>
+        <a class="app-nav-item" href="akun.html"><span>👤</span><small>Profil</small></a>
+    </nav>
+
+    <script src="api-config.js"></script>
+    <script src="review.js"></script>
+</body>
+
+</html>

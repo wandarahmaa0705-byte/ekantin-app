@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>eKantin - Checkout</title>
+
+    <!-- GOOGLE FONT -->
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <link
+        rel="stylesheet"
+        href="checkout.css">
+    <link rel="stylesheet" href="app-nav.css">
+
+</head>
+
+
+<body class="checkout-page">
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="header">
+
+    <div class="header-left">
+
+        <button
+            class="back-button"
+            onclick="goBack()">
+
+            ←
+
+        </button>
+
+
+        <img
+            src="kan1.png"
+            alt="Logo eKantin"
+            class="header-logo">
+
+
+        <div class="brand-name">
+
+            <strong>
+                eKantin
+            </strong>
+
+            <span>
+                Makan Sehat, Prestasi Hebat!
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <div class="checkout-title">
+
+        Order
+
+    </div>
+
+
+</header>
+
+
+
+<!-- =====================================================
+     PROGRESS
+===================================================== -->
+
+<section class="progress-section">
+
+    <div class="progress-item active">
+
+        <div class="progress-number">
+            1
+        </div>
+
+        <span>
+            Pesanan
+        </span>
+
+    </div>
+
+
+    <div class="progress-line"></div>
+
+
+    <div class="progress-item active">
+
+        <div class="progress-number">
+            2
+        </div>
+
+        <span>
+            Pembayaran
+        </span>
+
+    </div>
+
+
+    <div class="progress-line"></div>
+
+
+    <div class="progress-item">
+
+        <div class="progress-number">
+            3
+        </div>
+
+        <span>
+            Selesai
+        </span>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<main class="checkout-container">
+
+
+    <!-- =================================================
+         DAFTAR PESANAN
+    ================================================== -->
+
+    <section class="order-section">
+
+        <div class="order-section-heading">
+            <div>
+                <h2>Item Pesanan</h2>
+                <span id="itemCount">0 item</span>
+            </div>
+            <a class="add-item-button" href="menu.html">+ Tambah item</a>
+        </div>
+
+
+        <!-- ITEM PESANAN AKAN DIBUAT JAVASCRIPT -->
+
+        <div
+            id="orderList"
+            class="order-list">
+
+        </div>
+
+
+    </section>
+
+
+
+    <section class="delivery-section">
+        <h2>Tipe Pesanan</h2>
+        <label class="delivery-type-control" for="deliveryMethodSelect">
+            <span class="delivery-type-icon" aria-hidden="true">🏫</span>
+            <select id="deliveryMethodSelect" name="deliveryMethod" onchange="selectDelivery(this.value)">
+                <option value="pickup">Ambil di kantin sendiri</option>
+                <option value="delivery">Diantarkan · Ongkir Rp2.000</option>
+            </select>
+        </label>
+    </section>
+
+    <section class="related-menu-section" aria-labelledby="relatedMenuTitle">
+        <div class="section-title">
+            <h2 id="relatedMenuTitle">Menu Terkait</h2>
+            <a class="see-all-menu" href="menu.html">Lihat menu</a>
+        </div>
+        <div id="relatedMenuList" class="related-menu-list">
+            <p class="related-menu-empty">Memuat menu...</p>
+        </div>
+    </section>
+
+    <div id="deliveryLocationCard" class="delivery-location-card" hidden>
+        <span class="delivery-location-icon" aria-hidden="true">📍</span>
+        <div class="delivery-location-info">
+            <strong>Lokasi antar di sekolah</strong>
+            <p id="deliveryLocationDisplay"></p>
+            <label id="deliveryLocationField" class="delivery-location-field" for="deliveryLocationInput" hidden>
+                Alamat tujuan antar
+                <input id="deliveryLocationInput" type="text" maxlength="100" autocomplete="off" placeholder="Contoh: Gedung A, kelas 10A">
+            </label>
+        </div>
+        <a id="deliveryLocationLink" href="akun.html" hidden>Ubah profil</a>
+    </div>
+
+    <!-- =================================================
+         TOTAL PEMBAYARAN
+    ================================================== -->
+
+    <section class="total-card">
+
+        <div class="total-row">
+
+            <span>
+                Subtotal
+            </span>
+
+            <strong id="subtotal">
+                Rp0
+            </strong>
+
+        </div>
+
+
+        <div class="total-row">
+
+            <span>Ongkos antar</span>
+            <strong id="deliveryFee">Rp0</strong>
+
+        </div>
+
+
+        <div class="total-divider"></div>
+
+
+        <div class="grand-total">
+
+            <span>
+                Total Pembayaran
+            </span>
+
+            <strong id="grandTotal">
+                Rp0
+            </strong>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         METODE PEMBAYARAN
+    ================================================== -->
+
+    <section id="paymentSection" class="payment-section">
+
+        <h2>
+            Pilih Metode Pembayaran
+        </h2>
+
+
+        <!-- SALDO EKANTIN -->
+
+        <label
+            class="payment-option selected"
+            onclick="selectPayment('saldo')">
+
+            <div class="payment-left">
+
+                <div class="payment-icon saldo-icon">
+                    💳
+                </div>
+
+
+                <div class="payment-info">
+
+                    <strong>
+                        Saldo eKantin
+                    </strong>
+
+                    <span>
+                        Saldo:
+                        <b id="saldoDisplay">
+                            Rp50.000
+                        </b>
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <input
+                type="radio"
+                name="payment"
+                value="saldo"
+                checked>
+
+        </label>
+
+
+
+        <!-- QRIS KANTIN -->
+
+        <label
+            class="payment-option"
+            onclick="selectPayment('qris')">
+
+            <div class="payment-left">
+
+                <div class="payment-icon">
+                    📱
+                </div>
+
+
+                <div class="payment-info">
+
+                    <strong>
+                        QRIS Kantin
+                    </strong>
+
+                    <span>
+                        Scan QRIS untuk bayar pesanan
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <input
+                type="radio"
+                name="payment"
+                value="qris">
+
+        </label>
+
+        <div id="qrisPaymentCard" class="qris-payment-card" hidden>
+            <div class="qris-payment-header">
+                <span>Total pesanan</span>
+                <strong id="qrisTotal">Rp0</strong>
+            </div>
+            <div id="qrisSellerList" class="qris-seller-list"></div>
+            <p class="qris-payment-note">Transfer ke setiap QRIS sesuai nominal kantin. Penjual akan memeriksa pembayaran secara manual.</p>
+        </div>
+
+
+
+        <!-- DANA -->
+
+        <label
+            class="payment-option"
+            onclick="selectPayment('dana')">
+
+            <div class="payment-left">
+
+                <div class="payment-icon">
+                    💙
+                </div>
+
+
+                <div class="payment-info">
+
+                    <strong>
+                        DANA
+                    </strong>
+
+                    <span>
+                        Pembayaran melalui DANA
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <input
+                type="radio"
+                name="payment"
+                value="dana">
+
+        </label>
+
+
+
+        <!-- GOPAY -->
+
+        <label
+            class="payment-option"
+            onclick="selectPayment('gopay')">
+
+            <div class="payment-left">
+
+                <div class="payment-icon">
+                    💚
+                </div>
+
+
+                <div class="payment-info">
+
+                    <strong>
+                        GoPay
+                    </strong>
+
+                    <span>
+                        Pembayaran melalui GoPay
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <input
+                type="radio"
+                name="payment"
+                value="gopay">
+
+        </label>
+
+
+    </section>
+
+
+
+    <!-- =================================================
+         BAYAR
+    ================================================== -->
+
+</main>
+
+<footer class="checkout-sticky" aria-label="Ringkasan pembayaran">
+    <div class="sticky-total">
+        <span>Total Pembayaran</span>
+        <strong id="stickyGrandTotal">Rp0</strong>
+    </div>
+    <button id="payButton" class="pay-button" type="button" onclick="continueCheckout()">
+        Lanjut ke Pembayaran
+    </button>
+</footer>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<nav class="app-bottom-nav" aria-label="Navigasi utama">
+    <a class="app-nav-item" href="dashboard.html"><span>🏠</span><small>Beranda</small></a>
+    <a class="app-nav-item active" href="menu.html"><span>🍱</span><small>Menu</small></a>
+    <a class="app-nav-item" href="history.html"><span>📋</span><small>Riwayat</small></a>
+    <a class="app-nav-item" href="nutrition.html"><span>🥗</span><small>Gizi</small></a>
+    <a class="app-nav-item" href="akun.html"><span>👤</span><small>Profil</small></a>
+</nav>
+
+<script src="api-config.js"></script>
+<script src="checkout.js"></script>
+
+
+</body>
+
+</html>

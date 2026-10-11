@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riwayat Pesanan - eKantin</title>
+    <link rel="stylesheet" href="history.css">
+    <link rel="stylesheet" href="app-nav.css">
+</head>
+
+<body>
+    <header class="history-header">
+        <button class="back-button" onclick="goBack()" aria-label="Kembali">←</button>
+        <div>
+            <h1>Riwayat Pesanan</h1>
+            <p>Daftar makanan yang pernah kamu beli</p>
+        </div>
+    </header>
+
+    <main class="history-container">
+        <div class="history-toolbar">
+            <h2>Pesanan Kamu</h2>
+        </div>
+        <div id="orderHistory" class="order-history"></div>
+    </main>
+
+    <nav class="app-bottom-nav" aria-label="Navigasi utama">
+        <a class="app-nav-item" href="dashboard.html"><span>🏠</span><small>Beranda</small></a>
+        <a class="app-nav-item" href="menu.html"><span>🍱</span><small>Menu</small></a>
+        <a class="app-nav-item active" href="history.html"><span>📋</span><small>Riwayat</small></a>
+        <a class="app-nav-item" href="nutrition.html"><span>🥗</span><small>Gizi</small></a>
+        <a class="app-nav-item" href="akun.html"><span>👤</span><small>Profil</small></a>
+    </nav>
+
+    <script src="api-config.js"></script>
+    <script src="history.js"></script>
+</body>
+
+</html>
